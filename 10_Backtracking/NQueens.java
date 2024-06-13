@@ -1,20 +1,20 @@
 public class NQueens {
     public static boolean isSafe(char board[][], int row, int col) {
-        //up
+        //vertical up
         for(int i=row-1; i>=0; i--) {
             if(board[i][col] == 'Q') {
                 return false;
             }
         }
 
-        //up left diag
+        //left diagonal up
         for(int i=row-1, j=col-1; i>=0 && j>=0; i--,j--) {
             if(board[i][j] == 'Q') {
                 return false;
             }
         }
 
-        //up right diag
+        //right diagonal up
         for(int i=row-1, j=col+1; i>=0 && j<board[0].length; i--, j++) {
             if(board[i][j] == 'Q') {
                 return false;
@@ -30,7 +30,7 @@ public class NQueens {
             countWays++;
             return;
         }
-        //cols
+        //column loop
         for(int j=0; j<board[0].length; j++) {
             if(isSafe(board, row, j)) {
                 board[row][j] = 'Q';
